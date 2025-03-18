@@ -2,6 +2,7 @@
 import {apiFetch} from "@/lib/fetchData";
 import { supabase } from "@/lib/SupabaseConnection";
 import { useState } from "react";
+import { ProfileForm } from "@/components/form/form";
 
 export default function Home() {
 
@@ -22,9 +23,12 @@ export default function Home() {
   }
   return (
     <>
-      <div><button onClick={loginHandler}>Login</button></div>
-      <div><button onClick={onClickHandler}>Testt</button></div>
-      {isLoggedIn ? <div>IS LOGGED IN</div> : <div>NOT LOGGED IN</div> }
+    <div className="">
+      <div>
+      <ProfileForm/>
+      </div>
+ 
+    </div>
       
     </>
    
