@@ -1,41 +1,45 @@
 import {
     NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuIndicator,
+    NavigationMenuList,
     NavigationMenuItem,
     NavigationMenuLink,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-    NavigationMenuViewport,
-  } from "@/components/ui/navigation-menu"
-
-  export default function Navbar () {
-    return (<NavigationMenu>
-        <NavigationMenuList>
+  } from "@/components/ui/navigation-menu";
+  import { List, CirclePlus, UserRoundPen } from "lucide-react";
+  
+  export default function Navbar() {
+    return (
+      <NavigationMenu>
+        <NavigationMenuList className="flex gap-6">
+          {/** Erstes Icon */}
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>Link</NavigationMenuLink>
-            </NavigationMenuContent>
+            <NavigationMenuLink className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#5d00ff5a]">
+              <List
+                size={24}
+                className="text-black transition-all duration-300 ease-in-out"
+              />
+            </NavigationMenuLink>
           </NavigationMenuItem>
+  
+          {/** Zweites Icon */}
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>Link</NavigationMenuLink>
-            </NavigationMenuContent>
+            <NavigationMenuLink className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#5d00ff5a]">
+              <CirclePlus
+                size={24}
+                className="text-black transition-all duration-300 ease-in-out"
+              />
+            </NavigationMenuLink>
           </NavigationMenuItem>
+  
+          {/** Drittes Icon */}
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>Link</NavigationMenuLink>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>Link</NavigationMenuLink>
-            </NavigationMenuContent>
+            <NavigationMenuLink className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#5d00ff5a]">
+              <UserRoundPen
+                size={24}
+                className="text-black transition-all duration-300 ease-in-out"
+              />
+            </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
-      </NavigationMenu>)
+      </NavigationMenu>
+    );
   }

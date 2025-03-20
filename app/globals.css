@@ -121,3 +121,8 @@
     @apply bg-background text-foreground;
   }
 }
+svg {
+    width: auto !important;
+    height: auto !important;
+}
+
