@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
+import Image from "next/image";
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400", "700"], // Wähle die gewünschten Gewichtungen
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,16 +33,27 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex justify-center items-center bg-gray-100`}
+        className={`${roboto.className} roboto.className  antialiased min-h-screen flex items-center justify-center py-8 bg-[#66A5AD]`}
       >
-        <div className="w-full h-screen max-w-[800px] px-4 py-8 border border-gray-300 shadow-xl bg-white rounded-lg flex flex-col">
-          {/* Main Content - nimmt 90% des verfügbaren Platzes ein */}
+        <div className="w-full max-w-[800px] px-4 py-8 border border-gray-300 shadow-xl rounded-lg flex flex-col bg-[#C4DFE6]">
+          {/* Logo */}
+          <div className="flex justify-center mb-6">
+            <Image
+              src="/logo.png"
+              alt="Website Logo"
+              width={150}
+              height={50}
+              className="object-contain"
+            />
+          </div>
+
+          {/* Main Content */}
           <main className="flex-grow flex justify-center items-center">
             {children}
           </main>
 
-          {/* Navbar - bleibt immer unten in der Mitte */}
-          <div className="h-[10%] flex justify-center items-center">
+          {/* Navbar bleibt unten */}
+          <div className="mt-4 flex justify-center">
             <Navbar />
           </div>
         </div>
