@@ -4,8 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { AlertComp } from "@/components/alert";
 
-type Settings = {
+export type Settings = {
   key_notion: string;
   key_openai: string;
   key_telegrambot: string;
@@ -15,6 +16,45 @@ type Settings = {
 
 export default function UserSettings() {
   const [settings, setSettings] = useState<Settings>();
+  const [alert, setAlert] = useState<{ show: boolean; variant: string }>({
+    show: false,
+    variant: "success",
+  });
+
+  const submitHandler = async () => {
+    const data = await fetch("/api/settings", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(settings),
+    });
+    const res = await data.json();
+    if (!res.error) setAlert({ show: true, variant: "success" });
+    if (res.error) setAlert({ show: true, variant: "destructive" });
+    setTimeout(() => {
+      setAlert({ show: false, variant: "success" });
+    }, 3000);
+  };
+
+  const changeSettingsHandler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { id, value } = event.target;
+
+    setSettings((prevState) => {
+      return {
+        ...(prevState ?? {
+          key_notion: "",
+          key_openai: "",
+          key_telegrambot: "",
+          Name: "",
+          Email: "",
+        }),
+        [id]: value,
+      };
+    });
+  };
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -42,9 +82,10 @@ export default function UserSettings() {
             Name
           </Label>
           <Input
+            onChange={changeSettingsHandler}
             value={settings?.Name ?? ""}
             type="text"
-            id="name"
+            id="Name"
             placeholder="Enter your name"
             className="w-full mt-1 h-10 border-2 border-[#C4DFE6] bg-[#deeaed]"
           />
@@ -55,9 +96,10 @@ export default function UserSettings() {
             Email
           </Label>
           <Input
+            onChange={changeSettingsHandler}
             value={settings?.Email ?? ""}
             type="email"
-            id="email"
+            id="Email"
             placeholder="Enter your email"
             className="w-full mt-1 h-10 border-2 border-[#C4DFE6] bg-[#deeaed]"
           />
@@ -68,8 +110,9 @@ export default function UserSettings() {
             Notion API Key
           </Label>
           <Input
-            type="text"
-            id="notionApiKey"
+            onChange={changeSettingsHandler}
+            type="password"
+            id="key_notion"
             placeholder="Enter your Notion API Key"
             className="w-full mt-1 h-10 border-2 border-[#C4DFE6] bg-[#deeaed]"
             value={settings?.key_notion ?? ""}
@@ -81,9 +124,10 @@ export default function UserSettings() {
             Telegram API Key
           </Label>
           <Input
+            onChange={changeSettingsHandler}
             value={settings?.key_telegrambot ?? ""}
-            type="text"
-            id="telegramApiKey"
+            type="password"
+            id="key_telegrambot"
             placeholder="Enter your Telegram API Key"
             className="w-full mt-1 h-10 border-2 border-[#C4DFE6] bg-[#deeaed]"
           />
@@ -94,19 +138,35 @@ export default function UserSettings() {
             OpenAI API Key
           </Label>
           <Input
+            onChange={changeSettingsHandler}
             value={settings?.key_openai ?? ""}
-            type="text"
-            id="openAiKey"
+            type="password"
+            id="key_openai"
             placeholder="Enter your OpenAI API Key"
             className="w-full mt-1 h-10 border-2 border-[#C4DFE6] bg-[#deeaed]"
           />
         </div>
         <div className="flex justify-center">
-          <Button className="cursor-pointer bg-[#66a5ad] w-50">
+          <Button
+            onClick={submitHandler}
+            className="cursor-pointer bg-[#492af9] w-50"
+          >
             Save Settings
           </Button>
         </div>
       </div>
+      {alert.show ? (
+        <div className="pt-2">
+          <AlertComp
+            title="Success!"
+            description="You successfully updated your settings"
+            color=""
+            variant="success"
+          ></AlertComp>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }

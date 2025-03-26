@@ -5,6 +5,7 @@ import {
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import { List, CirclePlus, UserRoundPen } from "lucide-react";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -12,7 +13,10 @@ export default function Navbar() {
       <NavigationMenuList className="flex gap-6">
         {/** Erstes Icon */}
         <NavigationMenuItem>
-          <NavigationMenuLink className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#aa96ce5a] bg-amber-50">
+          <NavigationMenuLink
+            href="/connectionlist"
+            className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#492af962] bg-amber-50"
+          >
             <List
               size={24}
               className="text-black transition-all duration-300 ease-in-out"
@@ -22,7 +26,10 @@ export default function Navbar() {
 
         {/** Zweites Icon */}
         <NavigationMenuItem>
-          <NavigationMenuLink className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#aa96ce5a]  bg-amber-50">
+          <NavigationMenuLink
+            href="/addconnection"
+            className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#492af962]  bg-amber-50"
+          >
             <CirclePlus
               size={24}
               className="text-black transition-all duration-300 ease-in-out"
@@ -32,7 +39,10 @@ export default function Navbar() {
 
         {/** Drittes Icon */}
         <NavigationMenuItem>
-          <NavigationMenuLink className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#aa96ce5a]  bg-amber-50">
+          <NavigationMenuLink
+            href="/settings"
+            className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#492af962]  bg-amber-50"
+          >
             <UserRoundPen
               size={24}
               className="text-black transition-all duration-300 ease-in-out"

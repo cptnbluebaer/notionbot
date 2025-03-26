@@ -50,7 +50,7 @@ export function ProfileForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Email" {...field} />
+                <Input placeholder="Email" className="bg-white" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -63,14 +63,25 @@ export function ProfileForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input type="password" placeholder="password" {...field} />
+                <Input
+                  type="password"
+                  placeholder="password"
+                  className="bg-white"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">LOGIN</Button>
-        <Button type="submit">SIGNUP</Button>
+        <div className="flex flex-col">
+          <Button className="mb-2 cursor-pointer" type="submit">
+            LOGIN
+          </Button>
+          <Button className="cursor-pointer" type="submit">
+            SIGNUP
+          </Button>
+        </div>
       </form>
     </Form>
   );

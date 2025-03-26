@@ -33,9 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.className} roboto.className  antialiased min-h-screen flex items-center justify-center py-8 bg-[#66A5AD]`}
+        className={`${roboto.className} roboto.className  antialiased min-h-screen flex items-center justify-center py-8 bg-[#492af9]`}
       >
-        <div className="w-full max-w-[800px] px-4 py-8 border border-gray-300 shadow-xl rounded-lg flex flex-col bg-[#C4DFE6]">
+        <div className="w-full max-w-[800px] px-4 py-8 border border-gray-300 shadow-xl rounded-lg flex flex-col bg-[#ffffff]">
           {/* Logo */}
           <div className="flex justify-center mb-6">
             <Image
