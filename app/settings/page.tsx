@@ -68,10 +68,10 @@ export default function UserSettings() {
   }, []);
 
   return (
-    <div className="p-6 w-full mx-auto rounded-lg shadow-md bg-[#ffffff]">
+    <div className="p-6 w-full mx-auto rounded-lg shadow-md bg-[#10141E]">
       <div className="mb-6">
         <h1 className="text-2xl font-bold">User Settings</h1>
-        <p className="text-gray-600">
+        <p className="text-[#64C9F6]">
           Change your settings to set up your NotionBOT
         </p>
       </div>
@@ -87,7 +87,7 @@ export default function UserSettings() {
             type="text"
             id="Name"
             placeholder="Enter your name"
-            className="w-full mt-1 h-10 border-2 border-[#C4DFE6] bg-[#deeaed]"
+            className="w-full mt-1 h-10 border-1 border-[#C4DFE6] bg-[#030712]"
           />
         </div>
 
@@ -101,7 +101,7 @@ export default function UserSettings() {
             type="email"
             id="Email"
             placeholder="Enter your email"
-            className="w-full mt-1 h-10 border-2 border-[#C4DFE6] bg-[#deeaed]"
+            className="w-full mt-1 h-10 border-1 border-[#C4DFE6] bg-[#030712]"
           />
         </div>
 
@@ -114,7 +114,7 @@ export default function UserSettings() {
             type="password"
             id="key_notion"
             placeholder="Enter your Notion API Key"
-            className="w-full mt-1 h-10 border-2 border-[#C4DFE6] bg-[#deeaed]"
+            className="w-full mt-1 h-10 border-1 border-[#C4DFE6] bg-[#030712]"
             value={settings?.key_notion ?? ""}
           />
         </div>
@@ -129,7 +129,7 @@ export default function UserSettings() {
             type="password"
             id="key_telegrambot"
             placeholder="Enter your Telegram API Key"
-            className="w-full mt-1 h-10 border-2 border-[#C4DFE6] bg-[#deeaed]"
+            className="w-full mt-1 h-10 border-1 border-[#C4DFE6] bg-[#030712]"
           />
         </div>
 
@@ -143,13 +143,13 @@ export default function UserSettings() {
             type="password"
             id="key_openai"
             placeholder="Enter your OpenAI API Key"
-            className="w-full mt-1 h-10 border-2 border-[#C4DFE6] bg-[#deeaed]"
+            className="w-full mt-1 h-10 border-1 border-[#C4DFE6] bg-[#030712]"
           />
         </div>
         <div className="flex justify-center">
           <Button
             onClick={submitHandler}
-            className="cursor-pointer bg-[#492af9] w-50"
+            className="cursor-pointer bg-[#00BCFF] w-50"
           >
             Save Settings
           </Button>

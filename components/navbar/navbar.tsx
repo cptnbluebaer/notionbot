@@ -15,11 +15,11 @@ export default function Navbar() {
         <NavigationMenuItem>
           <NavigationMenuLink
             href="/connectionlist"
-            className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#492af962] bg-amber-50"
+            className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#364153] bg-[#030712]"
           >
             <List
               size={24}
-              className="text-black transition-all duration-300 ease-in-out"
+              className="text-[#3e77ce] transition-all duration-300 ease-in-out"
             />
           </NavigationMenuLink>
         </NavigationMenuItem>
@@ -28,11 +28,11 @@ export default function Navbar() {
         <NavigationMenuItem>
           <NavigationMenuLink
             href="/addconnection"
-            className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#492af962]  bg-amber-50"
+            className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#364153]  bg-[#030712]"
           >
             <CirclePlus
               size={24}
-              className="text-black transition-all duration-300 ease-in-out"
+              className="text-[#3e77ce] transition-all duration-300 ease-in-out"
             />
           </NavigationMenuLink>
         </NavigationMenuItem>
@@ -41,11 +41,11 @@ export default function Navbar() {
         <NavigationMenuItem>
           <NavigationMenuLink
             href="/settings"
-            className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#492af962]  bg-amber-50"
+            className="group p-3 rounded-md transition-all duration-300 ease-in-out hover:bg-[#364153]  bg-[#030712]"
           >
             <UserRoundPen
               size={24}
-              className="text-black transition-all duration-300 ease-in-out"
+              className="text-[#3e77ce] transition-all duration-300 ease-in-out"
             />
           </NavigationMenuLink>
         </NavigationMenuItem>
