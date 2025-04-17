@@ -22,11 +22,17 @@ type Properties = {
 };
 
 type promptInfo = {
-  [key: string]: string;
+  generalInfo: string;
+  properties: {
+    [key: string]: string;
+  };
 };
 
 export default function AddConnection() {
-  const [promptInfo, setPromptInfo] = useState<promptInfo>({});
+  const [promptInfo, setPromptInfo] = useState<promptInfo>({
+    generalInfo: "",
+    properties: {},
+  });
   const [properties, setProperties] = useState<Properties>({});
 
   const loadDataBaseHandler = async () => {
@@ -43,7 +49,7 @@ export default function AddConnection() {
     event.preventDefault();
     const { value } = event.target;
 
-    setPromptInfo((prevState) => {
+    setPromptInfo((prevState: promptInfo) => {
       return {
         ...prevState,
         [event.target.id]: event.target.value,
@@ -51,7 +57,7 @@ export default function AddConnection() {
     });
   };
 
-  const submitHandler = (e: React.SyntheticEvent) => {
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 

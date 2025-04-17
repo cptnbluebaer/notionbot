@@ -23,6 +23,7 @@ export default function PropertiesElement({
       <Input
         onChange={handler}
         id={label}
+        data-isProperty="true"
         placeholder="Describe this field"
         className="text-white"
       />
