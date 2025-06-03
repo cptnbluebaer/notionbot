@@ -50,7 +50,11 @@ export function ProfileForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Email" className="bg-white" {...field} />
+                <Input
+                  placeholder="Email"
+                  className="bg-white text-black"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -66,7 +70,7 @@ export function ProfileForm() {
                 <Input
                   type="password"
                   placeholder="password"
-                  className="bg-white"
+                  className="bg-white text-black"
                   {...field}
                 />
               </FormControl>
